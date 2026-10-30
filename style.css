@@ -1,0 +1,245 @@
+:root {
+    --bg-color: #06050e;
+    --text-color: #e2e8f3;
+    --accent-pink: #48cae4; /* Accent bleu cyan inspiré du nouveau shader */
+    --dim-text: #90e0ef;
+    --border-color: rgba(72, 202, 228, 0.25);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+/* Grain de film */
+.film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Header Fixe */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2.5rem 4rem;
+    z-index: 100;
+    mix-blend-mode: difference;
+    pointer-events: none;
+}
+
+header a, header .sub-logo {
+    pointer-events: auto;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-family: 'Italiana', serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+}
+
+.sub-logo {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--accent-pink);
+    margin-top: 0.3rem;
+}
+
+/* Actions Header (Contact + CV) */
+.header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.contact-link, .cv-link {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover, .cv-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+}
+
+/* --- STRUCTURE SPLIT ÉCRAN --- */
+.portfolio-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Côté Gauche : Shader */
+.shader-side {
+    flex: 0 0 55vw;
+    height: 100vh;
+    position: relative;
+}
+
+#webgl-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Bouton YouTube en bas à gauche sur le shader */
+.youtube-btn {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 4rem;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    background: rgba(6, 5, 14, 0.4);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.youtube-btn svg {
+    fill: #fff;
+    transition: fill 0.3s ease;
+}
+
+.youtube-btn:hover {
+    background: rgba(72, 202, 228, 0.2);
+    border-color: var(--accent-pink);
+    color: #fff;
+}
+
+.youtube-btn:hover svg {
+    fill: var(--accent-pink);
+}
+
+/* Côté Droit : Texte de présentation */
+.content-side {
+    flex: 0 0 45vw;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 8rem 4rem 4rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--bg-color);
+    position: relative;
+    z-index: 10;
+}
+
+.bio-section {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Titre Biographie Style Néon */
+.subtitle {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: var(--accent-pink);
+    margin-bottom: 1.8rem;
+    display: block;
+    font-weight: 400;
+}
+
+.bio-text p {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-color);
+}
+
+.highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.highlight-item h4 {
+    font-family: 'Italiana', serif;
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+}
+
+.highlight-item p {
+    font-size: 0.8rem;
+    color: var(--dim-text);
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    html, body {
+        overflow: auto;
+    }
+    .portfolio-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .shader-side {
+        width: 100vw;
+        height: 50vh;
+    }
+    .youtube-btn {
+        bottom: 1.5rem;
+        left: 2rem;
+    }
+    .content-side {
+        width: 100vw;
+        height: auto;
+        overflow-y: visible;
+        padding: 3rem 2rem 5rem 2rem;
+    }
+    .highlights {
+        grid-template-columns: 1fr;
+    }
+}

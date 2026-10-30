@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morgane Rocheteau — Artiste Visuelle</title>
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="film-grain"></div>
+
+    <header>
+        <div class="logo-container">
+            <a href="#" class="logo">Morgane Rocheteau</a>
+            <span class="sub-logo">Artiste Visuelle</span>
+        </div>
+
+        <div class="header-actions">
+            <a href="mailto:rocheteaumn@gmail.com" class="contact-link">Contact</a>
+            <a href="https://drive.google.com/file/d/16kkY3Uneq4xT2phBXEhn_Aebu5Tld5Jm/view?usp=sharing" target="_blank" rel="noopener" class="cv-link">Mon CV (PDF)</a>
+        </div>
+    </header>
+
+    <!-- Structure Split Screen -->
+    <div class="portfolio-container">
+        <!-- Gauche : Shader WebGL avec bouton YouTube en bas à gauche -->
+        <div class="shader-side">
+            <canvas id="webgl-canvas"></canvas>
+            
+            <!-- Remplace le lien ci-dessous par l'URL exacte de ta chaîne YouTube -->
+            <a href="https://www.youtube.com/@morganerocheteau" target="_blank" rel="noopener" class="youtube-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span>YouTube</span>
+            </a>
+        </div>
+
+        <!-- Droite : Contenu Textuel -->
+        <main class="content-side">
+            <div class="bio-section">
+                <span class="subtitle">Biographie</span>
+                
+                <div class="bio-text">
+                    <p>
+                        À la croisée du cinéma immersif, de l'art numérique et de l'esthétique psychédélique contemporaine. Mon travail explore les tensions entre l'intime et le spectaculaire, la lumière saturée et les ombres profondes.
+                    </p>
+                    <p>
+                        Inspirée par la texture visuelle de visions audacieuses, je façonne des univers vifs et magnétiques où la couleur devient le vecteur principal de l'émotion.
+                    </p>
+                </div>
+
+                <div class="highlights">
+                    <div class="highlight-item">
+                        <h4>Compétences</h4>
+                        <p>Direction artistique, vidéo, scénographie numérique, création d'univers visuels & identité graphique.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>Logiciels</h4>
+                        <p>Suite Adobe (Premiere Pro, After Effects, Photoshop, Illustrator), Blender, TouchDesigner, DaVinci Resolve.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
